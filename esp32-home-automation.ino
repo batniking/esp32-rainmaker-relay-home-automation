@@ -12,7 +12,7 @@ using namespace ace_button;                // For direct access to AceButton fun
 
 // ======== DEVICE SETTINGS =============
 const char *service_name = "ESP32_HA"; // Name broadcast by ESP32 for BLE provisioning (as seen by RainMaker app)
-const char *pop = "12345678";          // Proof Of Possession (password) entered during device pairing[3]
+const char *pop = "12345678";          // Proof Of Possession (password) entered during device pairing
 
 char deviceName_1[] = "Switch1";       // Logical/voice assistant name of relay 1 (must be unique and match Alexa/Google commands)
 char deviceName_2[] = "Switch2";
