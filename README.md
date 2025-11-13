@@ -12,7 +12,7 @@
 - [Technical Details & Code Explanation](#technical-details--code-explanation)
 - [Reset/Boot Button Operation](#resetboot-button-operation)
 - [Common Issues & Solutions](#common-issues--solutions)
-- [Project Photos](#project-photos)
+- [Project Photos](#project-photo)
 - [Credits & Further Learning](#credits--further-learning)
 
 ## Project Overview
@@ -130,8 +130,8 @@ Tips:
 - **RainMaker WiFi onboarding issues:** App can't find SSID? Use manual network entry and verify you're on a 2.4 GHz WiFi network.
 - **WiFi/BLE provisioning bug:** If you see errors for undefined `WIFI_PROV_SCHEME_*` flags, update to `NETWORK_PROV_SCHEME_*` family as used in code. This is the issue I solved in the original code from the video.
 
-## Project Photos
-
+## Project Photo
+<img src="https://github.com/user-attachments/assets/d4ec2732-de57-46ed-a108-b0220af60833" width="400" height="400" />
 
 ## Credits & Further Learning
 - Code based on 
